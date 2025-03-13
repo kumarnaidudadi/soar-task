@@ -1,0 +1,848 @@
+/* Base Styles & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+:root {
+  --primary-blue: #3b82f6;
+  --dark-blue: #1e40af;
+  --navy: #172554;
+  --black: #111827;
+  --dark-gray: #374151;
+  --gray: #6b7280;
+  --light-gray: #e5e7eb;
+  --white: #ffffff;
+  --red: #ef4444;
+  --green: #10b981;
+  --yellow: #f59e0b;
+  --orange: #f97316;
+  --purple: #8b5cf6;
+  --pink: #ec4899;
+  --teal: #14b8a6;
+  --sidebar-width: 240px;
+  --header-height: 70px;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background-color: #f9fafb;
+}
+
+/* Dashboard Layout */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  min-height: 100vh;
+  padding: 0 30px 30px;
+  background-color: #f9fafb;
+  overflow-x: hidden;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  height: var(--header-height);
+  width: 100%;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-container i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid var(--light-gray);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--dark-gray);
+  background-color: var(--white);
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.settings-btn, .notification-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-btn:hover, .notification-btn:hover {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.view-all {
+  font-size: 14px;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Cards Section */
+.cards-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  width: 100%;
+  flex: 1;
+  min-width: 300px;
+}
+
+.cards-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+  border-radius: 10px;
+}
+
+.credit-card {
+  min-width: 320px;
+  height: 180px;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+}
+
+.credit-card.dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.credit-card.light {
+  background-color: var(--white);
+  color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
+}
+
+.card-balance-section span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.recent-transaction {
+  flex: 1;
+  min-width: 300px;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.credit-card {
+  flex: 1;
+  min-width: 280px;
+}
+
+@media screen and (max-width: 600px) {
+  .credit-card {
+    width: 100%;
+  }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+  
+  .cards-container,
+  .recent-transaction {
+    width: 100%;
+  }
+}
+.card-balance-section h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-chip {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.card-info span {
+  font-size: 10px;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.card-info p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.card-type {
+  display: flex;
+  gap: 5px;
+}
+
+.mastercard-logo {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.circle.red {
+  background-color: var(--red);
+  margin-right: -8px;
+}
+
+.circle.yellow {
+  background-color: var(--yellow);
+}
+
+.circle.light {
+  background-color: var(--light-gray);
+  margin-right: -8px;
+}
+/* Recent Transaction Styles */
+.recent-transaction {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  margin-top: 20px;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: var(--white);
+}
+
+.transaction-icon.deposit {
+  background-color: var(--yellow);
+}
+
+.transaction-icon.paypal {
+  background-color: var(--primary-blue);
+}
+
+.transaction-icon.user {
+  background-color: var(--teal);
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--dark-gray);
+  margin-bottom: 5px;
+}
+
+.transaction-date {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.transaction-amount.positive {
+  color: var(--green);
+}
+
+.transaction-amount.negative {
+  color: var(--red);
+}
+
+/* Transfer Amount Styles */
+.transfer-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.amount-input {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.amount-input span {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 5px;
+}
+
+.amount-input input {
+  padding: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+
+.send-btn {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.send-btn:hover {
+  background-color: var(--dark-gray);
+}
+
+/* Two Column Layout */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.column-section {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.column-section h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+/* Chart Containers */
+.chart-container, .pie-chart-container, .line-chart-container {
+  height: 250px;
+  width: 100%;
+  position: relative;
+}
+
+/* Chart Legend */
+.chart-legend {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.legend-dot.blue {
+  background-color: var(--primary-blue);
+}
+
+.legend-dot.black {
+  background-color: var(--black);
+}
+
+/* Bar Chart */
+.bar-chart {
+  display: flex;
+  height: 220px;
+  align-items: flex-end;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 200px;
+  margin-bottom: 30px;
+  font-size: 12px;
+  color: var(--gray);
+  padding-right: 10px;
+}
+
+.chart-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-grow: 1;
+  height: 20px;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+
+
+.day-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.bar-container {
+  position: relative;
+  height: 200px;
+  width: 40px; /* Increased width to accommodate both bars */
+  display: flex;
+  justify-content: space-between; /* Changed from center to space-between */
+  align-items: flex-end;
+}
+
+.bar {
+  width: 12px;
+  border-radius: 6px;
+  position: relative; /* Changed from absolute to relative */
+  bottom: 0;
+}
+
+.bar.blue {
+  background-color: var(--primary-blue);
+  z-index: 1;
+  /* Remove left positioning */
+}
+
+.bar.black {
+  background-color: var(--green);
+  /* Remove left positioning */
+  z-index: 0;
+}
+
+/* Pie Chart */
+/* Pie Chart Container */
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.pie-chart {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #cde351 0% 35%,        /* Others - 35% (Black) */
+    #293B76 35% 65%,       /* Entertainment - 30% (Navy) */
+    #3366FF 65% 85%,       /* Investment - 20% (Blue) */
+    #FF8C00 85% 100%       /* Bill Expense - 15% (Orange) */
+  );
+}
+
+/* Legend items */
+.pie-segment {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  pointer-events: none;
+}
+.segment-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentage {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.category {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+
+.pie-segment.others {
+  top: 50%;
+  left: 100%;
+  transform: translate(-125%, -50%);
+}
+
+.pie-segment.entertainment {
+  
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -125%);
+}
+
+.pie-segment.investment {
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.pie-segment.bill-expense {
+  top: 0%;
+  left: 35%;
+  transform: translate(-50%, 25%);
+}
+/* Updated label positioning */
+.pie-label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  pointer-events: none;
+}
+
+.percentage {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Position labels in the center of each segment */
+.pie-segment.investment .pie-label {
+  transform: rotate(-36deg) translateX(70px); /* Rotate to center of segment */
+}
+
+.pie-segment.entertainment .pie-label {
+  transform: rotate(-126deg) translateX(70px);
+}
+
+.pie-segment.bill-expense .pie-label {
+  transform: rotate(-198deg) translateX(70px);
+}
+
+.pie-segment.others .pie-label {
+  transform: rotate(-288deg) translateX(70px);
+}
+
+.percentage {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category {
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+/* Quick Transfer Section */
+.quick-transfer-container {
+  padding: 15px 0;
+}
+
+.transfer-profiles {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.transfer-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--light-gray);
+  width: 45%;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+
+.profile-title {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.next-contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.next-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light-gray);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-btn:hover {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+/* Line Chart */
+.line-chart {
+  display: flex;
+  height: 220px;
+  position: relative;
+}
+
+.chart-area {
+  flex-grow: 1;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 25px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+}
+.chart-x-axis span {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+.chart-x-axis {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 150px; /* Adjust based on your y-axis width */
+  padding-right: 150px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: 0 15px 15px;
+  }
+  
+  .search-container {
+    width: 200px;
+  }
+  
+  .credit-card {
+    min-width: 280px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-actions {
+    gap: 10px;
+  }
+  
+  .search-container {
+    width: 150px;
+  }
+  
+  .credit-card {
+    min-width: 240px;
+    height: 160px;
+  }
+  
+  .card-balance-section h3 {
+    font-size: 18px;
+  }
+  
+  .card-number {
+    font-size: 12px;
+  }
+}
